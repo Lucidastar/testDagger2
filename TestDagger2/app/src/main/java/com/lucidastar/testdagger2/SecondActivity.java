@@ -13,15 +13,20 @@ public class SecondActivity extends AppCompatActivity {
     Cloth blueCloth;
     @Inject
     ClothHandler clothHandler;
+
+    @Inject
+    Trousers mTrousers;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
         mTextView = (TextView) findViewById(R.id.tv_second);
-        SecondComponent build = DaggerSecondComponent.builder().secondModule(new SecondModule()).build();
+        SecondComponent build = DaggerSecondComponent.builder().baseComponent(((MyApplication)getApplication()).getBaseComponent()).secondModule(new SecondModule()).build();
         build.inject(this);
-        mTextView.setText("蓝布料加工后变成了" + clothHandler.handle(blueCloth) + "\nclothHandler地址:" + clothHandler);
+//        SecondComponent build = DaggerSecondComponent.builder().secondModule(new SecondModule()).build();
+//        build.inject(this);
+        mTextView.setText("蓝布料加工后变成了" + clothHandler.handle(blueCloth) + "\nclothHandler地址:" + clothHandler+"其他"+mTrousers);
 
     }
 }

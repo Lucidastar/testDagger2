@@ -33,8 +33,8 @@ public class MainActivity extends AppCompatActivity {
 
         mTextView = (TextView) findViewById(R.id.tv_test);
 
-        MainComponent build = DaggerMainComponent.builder().mainModule(new MainModule()).build();
-        build.inject(this);
+//        MainComponent build = DaggerMainComponent.builder().mainModule(new MainModule()).build();
+//        build.inject(this);
 
 
 

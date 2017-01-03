@@ -6,7 +6,7 @@ import dagger.Component;
  * Created by hanxiaoxing on 16/12/30.
  */
 @PerActivity
-@Component(modules = SecondModule.class)
+@Component(modules = SecondModule.class,dependencies = BaseComponent.class)
 public interface SecondComponent {
     void inject(SecondActivity secondActivity);
 }

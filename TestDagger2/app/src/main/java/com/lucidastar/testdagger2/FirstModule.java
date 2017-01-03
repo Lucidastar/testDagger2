@@ -10,6 +10,10 @@ import dagger.Provides;
 @Module
 public class FirstModule {
 
+
+    private String trouserName;
+
+    private int trouserLen;
     @PerActivity
     @Provides
     public Cloth getRedCloth() {
@@ -20,7 +24,26 @@ public class FirstModule {
 
     @PerActivity
     @Provides
-    public ClothHandler getClothHandler(){
-        return new ClothHandler();
+     public Clothes getClothes(){
+       Clothes clothes = new Clothes();
+        Cloth cloth = new Cloth();
+        cloth.setColor("lanse");
+        clothes.setCloth(cloth);
+         return clothes;
+     };
+
+    @PerActivity
+    @Provides
+    Integer len(){
+        return trouserLen;
     }
+
+
+
+//
+//    @PerActivity
+//    @Provides
+//    public ClothHandler getClothHandler(){
+//        return new ClothHandler();
+//    }
 }

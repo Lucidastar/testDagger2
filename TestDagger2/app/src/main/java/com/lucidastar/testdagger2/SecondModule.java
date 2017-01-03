@@ -16,10 +16,10 @@ public class SecondModule {
         cloth.setColor("蓝色");
         return cloth;
     }
-
-    @PerActivity
-    @Provides
-    public ClothHandler getClothHandler(){
-        return new ClothHandler();
-    }
+//
+//    @PerActivity
+//    @Provides
+//    public ClothHandler getClothHandler(){
+//        return new ClothHandler();
+//    }
 }

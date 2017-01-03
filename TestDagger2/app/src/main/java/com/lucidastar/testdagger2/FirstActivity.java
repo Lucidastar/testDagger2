@@ -17,15 +17,31 @@ public class FirstActivity extends AppCompatActivity {
 
     @Inject
     ClothHandler clothHandler;
+    @Inject
+    Clothes mClothes;
+
+    @Inject
+    Trousers mTrousers;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first);
 
         mTextView = (TextView) findViewById(R.id.tv_first);
-        FirstComponent build = DaggerFirstComponent.builder().firstModule(new FirstModule()).build();
+
+
+        FirstComponent build = DaggerFirstComponent.builder().baseComponent(((MyApplication)getApplication()).getBaseComponent()).firstModule(new FirstModule()).build();
         build.inject(this);
-        mTextView.setText("红布料加工后变成了" + clothHandler.handle(redCloth) + "\nclothHandler地址:" + clothHandler);
+
+
+
+//        FirstComponent build = DaggerFirstComponent.builder().firstModule(new FirstModule()).build();
+//        build.inject(this);
+//        mTextView.setText("红布料加工后变成了" + clothHandler.handle(redCloth) + "\nclothHandler地址:" + clothHandler+"布料:"+mClothes.getCloth());
+        mTrousers.setName("裤子");
+
+        mTextView.setText("红布料加工后变成了"+mTrousers.getName());
+
 
     }
 

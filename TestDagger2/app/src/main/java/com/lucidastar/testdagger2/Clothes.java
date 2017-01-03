@@ -8,6 +8,10 @@ public class Clothes
 {
     private Cloth mCloth;
 
+    public void setCloth(Cloth cloth) {
+        mCloth = cloth;
+    }
+
     public Clothes() {
     }
 
